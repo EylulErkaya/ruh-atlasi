@@ -1,122 +1,108 @@
-🌙 RuhAtlası — Ruh Hali Takip Uygulaması
+# 🌙 Ruh Hali Takip Uygulaması
 
-<p align="center">
-  <em>Kendini anlamanın en sade yolu.</em>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Frontend-HTML%2FCSS%2FJS-6366F1?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Backend-FastAPI-10B981?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Database-PostgreSQL-0EA5E9?style=for-the-badge"/>
-</p>
+Modern, estetik ve kullanıcı dostu bir ruh hali takip uygulaması.  
+Kullanıcıların günlük duygularını kaydedebildiği, geçmiş analizlerini görüntüleyebildiği ve anonim topluluk alanında paylaşım yapabildiği responsive bir web projesidir.
 
 ---
 
-## ✨ Proje Hakkında
+## ✨ Proje Özellikleri
 
-**RuhAtlası**, kullanıcıların günlük ruh halini takip etmesini,
-zaman içindeki değişimleri analiz etmesini ve anonim bir toplulukla paylaşmasını sağlayan modern bir web uygulamasıdır.
+### 🔐 Kullanıcı Sistemi
+- Giriş yapma ve kayıt olma ekranı
+- Demo kullanıcı desteği
+- LocalStorage tabanlı kullanıcı oturumu
 
-> “Her gün bir iz bırak, zamanla kendini keşfet.”
+### 😊 Ruh Hali Takibi
+- 9 farklı ruh hali seçeneği
+- Yoğunluk belirleme sistemi
+- Günlük not ekleme özelliği
+- Günlük seri (streak) sistemi
 
----
+### 📊 Analiz & Geçmiş
+- Son 7 günlük ruh hali grafiği
+- Geçmiş kayıtları görüntüleme
+- En sık hissedilen ruh hali analizi
 
-## 🚀 Öne Çıkan Özellikler
+### 🤝 Topluluk Alanı
+- Anonim paylaşım sistemi
+- Beğeni ve kalp reaksiyonları
+- Destek odaklı topluluk yapısı
 
-🧠 **Akıllı Ruh Hali Takibi**
+### ⚙️ Profil & Ayarlar
+- Kullanıcı adı değiştirme
+- Bildirim sistemi
+- Bildirim saati ayarlama
+- Tüm verileri temizleme özelliği
 
-* 9 farklı duygu seçeneği
-* Yoğunluk (1–5) sistemi
-* Not ekleme
-
-📊 **Görsel Analiz**
-
-* Son 7 gün grafik
-* Trend takibi
-* En sık hissedilen duygu
-
-🔥 **Motivasyon Sistemi**
-
-* Günlük streak (seri)
-* En iyi seri takibi
-* Rozet sistemi (geliştirilebilir)
-
-💬 **Anonim Topluluk**
-
-* Paylaşım yapma
-* Beğeni & kalp sistemi
-* Destek ortamı
-
-🎯 **Kişisel Deneyim**
-
-* Ruh haline özel öneriler
-* Bildirim ayarları
-* Profil yönetimi
+### 📱 Responsive Tasarım
+- Mobil uyumlu modern arayüz
+- Akıcı animasyonlar
+- Dark theme tasarımı
+- Kullanıcı deneyimi odaklı yapı
 
 ---
 
-## 🧱 Teknoloji Mimarisi
+## 🛠️ Kullanılan Teknolojiler
 
-### 🎨 Frontend
-
-* HTML5
-* CSS3 (Modern UI)
-* Vanilla JavaScript
-
-### ⚙️ Backend
-
-* FastAPI
-* Python 3.11
-* REST API
-
-### 🗄️ Database
-
-* PostgreSQL
-
-### 🔐 Güvenlik
-
-* JWT Authentication
-* bcrypt şifreleme
+- HTML5
+- CSS3
+- JavaScript (Vanilla JS)
+- LocalStorage API
+- Font Awesome
+- Google Fonts
 
 ---
 
+## 📂 Proje Yapısı
 
-## 🖼️ Ekranlar
-
-* 🌙 Giriş / Kayıt ekranı
-* 😊 Ruh hali seçimi
-* 📊 Analiz & grafik
-* 💬 Topluluk
-* 👤 Profil
-
----
-
-## 🔮 Gelecek Özellikler
-
-* 🤖 AI destekli duygu analizi
-* 📅 Takvim görünümü
-* 🔔 Bildirim sistemi
-* ☁️ Cloud deployment
-* 📱 Mobil uygulama
+```bash
+📁 proje
+ ┣ 📄 index.html
+ ┣ 📄 login.html
+ ┣ 📄 script.js
+ ┣ 📄 base.css
+ ┣ 📄 app.css
+ ┗ 📄 login.css
+```
 
 ---
 
-## 👩‍💻 Geliştirici
+## 🚀 Canlı Demo
 
-**Eylül Erkaya**
-Yazılım Mühendisliği öğrencisi
-
-* AI & Computer Vision
-* Mobil ve Web geliştirme
+```txt
+GitHub Pages linki buraya gelecek
+```
 
 ---
 
-## ⭐ Destek
+## 👨‍💻 Geliştirici
 
-Projeyi beğendiysen ⭐ vererek destek olabilirsin!
+Bu proje yazılım mühendisliği frontend geliştirme çalışması kapsamında geliştirilmiştir.
 
 ---
 
-<p align="center">
-  <strong>“Kendini anlamak, en güçlü süper güçtür.”</strong>
-</p>
+## 📌 Not
+
+Bu projede backend veya veritabanı kullanılmamıştır.  
+Veriler tarayıcı üzerinde `LocalStorage` kullanılarak saklanmaktadır.
+
+Demo giriş bilgileri:
+
+```txt
+E-posta: test@test.com
+Şifre: 123456
+```
+
+---
+
+## 🌌 Arayüz Teması
+
+Uygulama;
+- mor tonlu modern dark theme,
+- cam efekti kart yapıları,
+- yumuşak geçiş animasyonları,
+- minimalist mobil tasarım
+yaklaşımıyla tasarlanmıştır.
+
+---
+⭐ Projeyi beğendiysen repo’ya yıldız vermeyi unutma!
