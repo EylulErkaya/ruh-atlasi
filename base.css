@@ -1,0 +1,21 @@
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --radius:16px;
+  --accent:#A78BFA;
+}
+
+body{
+  font-family:'DM Sans',sans-serif;
+  min-height:100vh;
+  max-width:430px;
+  margin:0 auto;
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* shared animations */
+@keyframes floatBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes popIn{from{transform:scale(0.5);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes spin{to{transform:rotate(360deg)}}

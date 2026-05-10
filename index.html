@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ruh Hali Takibi</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="app-header" id="main-header">
+  <h1 id="header-title">Ruh Hali</h1>
+  <div class="streak-badge" id="streak-badge">
+    <i class="fas fa-fire"></i>
+    <span id="streak-count">0</span> gün
+  </div>
+</div>
+
+<!-- SCREENS -->
+
+<!-- MOOD SCREEN -->
+<div id="screen-mood" class="screen active">
+  <p style="font-size:14px;color:var(--text2);margin-bottom:16px">Bugün nasıl hissediyorsun?</p>
+
+  <div id="today-banner" class="notif-bar" style="display:none">
+    <i class="fas fa-check-circle"></i>
+    <p>Bugünkü ruh halini zaten kaydettin! İstersen güncelle.</p>
+  </div>
+
+  <div class="mood-grid" id="mood-grid">
+    <button class="mood-btn" data-mood="happy" data-color="#F59E0B" data-label="Mutlu">
+      <span class="mood-emoji">😊</span><span>Mutlu</span>
+    </button>
+    <button class="mood-btn" data-mood="excited" data-color="#10B981" data-label="Heyecanlı">
+      <span class="mood-emoji">🤩</span><span>Heyecanlı</span>
+    </button>
+    <button class="mood-btn" data-mood="relaxed" data-color="#3B82F6" data-label="Rahat">
+      <span class="mood-emoji">😌</span><span>Rahat</span>
+    </button>
+    <button class="mood-btn" data-mood="neutral" data-color="#8B5CF6" data-label="Nötr">
+      <span class="mood-emoji">😐</span><span>Nötr</span>
+    </button>
+    <button class="mood-btn" data-mood="sad" data-color="#6366F1" data-label="Üzgün">
+      <span class="mood-emoji">😢</span><span>Üzgün</span>
+    </button>
+    <button class="mood-btn" data-mood="stressed" data-color="#EC4899" data-label="Stresli">
+      <span class="mood-emoji">😰</span><span>Stresli</span>
+    </button>
+    <button class="mood-btn" data-mood="angry" data-color="#EF4444" data-label="Kızgın">
+      <span class="mood-emoji">😠</span><span>Kızgın</span>
+    </button>
+    <button class="mood-btn" data-mood="tired" data-color="#9CA3AF" data-label="Yorgun">
+      <span class="mood-emoji">😴</span><span>Yorgun</span>
+    </button>
+    <button class="mood-btn" data-mood="anxious" data-color="#F97316" data-label="Endişeli">
+      <span class="mood-emoji">😟</span><span>Endişeli</span>
+    </button>
+  </div>
+
+  <!-- Suggestions area (shown after saving) -->
+  <div id="suggestions-area" style="display:none">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+      <h2 style="font-size:18px">Senin için öneriler</h2>
+      <span id="sug-mood-badge" class="badge badge-mood"></span>
+    </div>
+    <div id="suggestions-list"></div>
+    <button class="btn btn-ghost btn-full" onclick="resetMoodScreen()" style="margin-top:8px">
+      <i class="fas fa-redo"></i> Yeniden kaydet
+    </button>
+  </div>
+</div>
+
+<!-- HISTORY SCREEN -->
+<div id="screen-history" class="screen">
+  <div class="card">
+    <h2 style="font-size:17px;margin-bottom:4px">Son 7 gün</h2>
+    <p style="font-size:12px;color:var(--text3);margin-bottom:0">Ruh hali trendi</p>
+    <div class="chart-bars" id="chart-bars"></div>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:4px" id="mood-legend"></div>
+  </div>
+
+  <div class="card">
+    <h2 style="font-size:17px;margin-bottom:12px">Kayıtlar</h2>
+    <div id="history-list"></div>
+  </div>
+</div>
+
+<!-- COMMUNITY SCREEN -->
+<div id="screen-community" class="screen">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+    <div>
+      <h2 style="font-size:20px">Topluluk</h2>
+      <p style="font-size:13px;color:var(--text3)">Anonim destek alanı</p>
+    </div>
+    <button class="btn btn-primary btn-sm" onclick="openNewPost()">
+      <i class="fas fa-plus"></i> Paylaş
+    </button>
+  </div>
+  <div id="community-list"></div>
+</div>
+
+<!-- PROFILE SCREEN -->
+<div id="screen-profile" class="screen">
+  <div class="card" style="text-align:center;padding:24px">
+    <div style="width:72px;height:72px;border-radius:50%;background:#EEF2FF;border:3px solid #C7D2FE;display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 12px">👤</div>
+    <h2 style="font-size:20px" id="profile-nick">—</h2>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="stat-num" id="stat-total">0</div>
+      <div class="stat-lbl">Toplam kayıt</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num" id="stat-streak">0</div>
+      <div class="stat-lbl">Güncel seri</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num" id="stat-best">0</div>
+      <div class="stat-lbl">En uzun seri</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2 style="font-size:17px;margin-bottom:4px">En çok yaşanan ruh hali</h2>
+    <p style="font-size:22px;margin-top:8px" id="stat-top-mood">—</p>
+  </div>
+
+  <div class="card">
+    <h2 style="font-size:17px;margin-bottom:16px">Ayarlar</h2>
+
+    <div class="setting-row">
+      <div>
+        <div class="setting-label">Bildirim saati</div>
+        <div class="setting-sub">Her gün hatırlatma gönder</div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <input type="time" id="notif-time" style="width:110px">
+        <button class="btn btn-primary btn-sm" onclick="applyNotifTime()">
+          Kaydet
+        </button>
+      </div>
+    </div>
+
+    <div class="setting-row">
+      <div>
+        <div class="setting-label">Bildirimler</div>
+        <div class="setting-sub">Günlük ruh hali hatırlatıcısı</div>
+      </div>
+      <label class="toggle">
+        <input type="checkbox" id="notif-toggle" checked onchange="saveNotifPref(this.checked)">
+        <span class="slider-tog"></span>
+      </label>
+    </div>
+
+    <div class="setting-row">
+      <div>
+        <div class="setting-label">Kullanıcı Adı</div>
+        <div class="setting-sub" id="nick-display">—</div>
+      </div>
+      <button class="btn btn-ghost btn-sm" onclick="changeNickname()">Değiştir</button>
+    </div>
+
+    <div class="setting-row" style="border-bottom:none">
+      <div>
+        <div class="setting-label" style="color:var(--danger)">Tüm verileri sil</div>
+        <div class="setting-sub">Geri alınamaz</div>
+      </div>
+      <button class="btn btn-sm" style="background:#FEE2E2;color:#B91C1C;border:none" onclick="clearAllData()">Sil</button>
+    </div>
+    <div class="setting-row" style="border-bottom:none">
+    <div>
+      <div class="setting-label">Çıkış Yap</div>
+      <div class="setting-sub">Hesabından güvenli çıkış yap</div>
+    </div>
+
+    <button class="btn btn-sm"
+            style="background:#E0E7FF;color:#4338CA;border:none"
+            onclick="logoutApp()">
+      Çıkış Yap
+    </button>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <button class="nav-btn active" data-screen="mood" onclick="switchTab(this,'screen-mood','Ruh Hali')">
+    <i class="fas fa-smile-beam"></i>
+    <span>Ruh Hali</span>
+    <div class="dot"></div>
+  </button>
+  <button class="nav-btn" data-screen="history" onclick="switchTab(this,'screen-history','Geçmiş')">
+    <i class="fas fa-chart-bar"></i>
+    <span>Geçmiş</span>
+    <div class="dot"></div>
+  </button>
+  <button class="nav-btn" data-screen="community" onclick="switchTab(this,'screen-community','Topluluk')">
+    <i class="fas fa-users"></i>
+    <span>Topluluk</span>
+    <div class="dot"></div>
+  </button>
+  <button class="nav-btn" data-screen="profile" onclick="switchTab(this,'screen-profile','Profil')">
+    <i class="fas fa-user"></i>
+    <span>Profil</span>
+    <div class="dot"></div>
+  </button>
+</nav>
+
+<!-- TOAST -->
+<div id="toast">Kaydedildi!</div>
+
+<!-- MOOD DETAIL MODAL -->
+<div class="modal-overlay" id="detail-modal">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <h2 style="font-size:20px;margin-bottom:4px" id="detail-title">Detay Ekle</h2>
+    <p style="font-size:13px;color:var(--text3);margin-bottom:16px">Neden böyle hissediyorsun?</p>
+
+    <label>Yoğunluk</label>
+    <div class="intensity-wrap">
+      <input type="range" min="1" max="5" value="3" id="detail-intensity">
+      <div class="intensity-labels"><span>Hafif</span><span>Orta</span><span>Çok</span></div>
+    </div>
+
+    <label style="margin-top:12px">Notun (isteğe bağlı)</label>
+    <textarea id="detail-reason" rows="3" placeholder="Bugün ne oldu?"></textarea>
+
+    <div style="display:flex;gap:8px;margin-top:16px">
+      <button class="btn btn-ghost" onclick="closeDetailModal()" style="flex:1">Atla</button>
+      <button class="btn btn-primary" onclick="saveMoodEntry()" style="flex:2">
+        <i class="fas fa-check"></i> Kaydet
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- NEW POST MODAL -->
+<div class="modal-overlay" id="post-modal">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <h2 style="font-size:20px;margin-bottom:4px">Anonim paylaşım</h2>
+    <p style="font-size:13px;color:var(--text3);margin-bottom:16px">Kullanıcı Adın: <strong id="post-nick-label">—</strong></p>
+    <textarea id="post-text" rows="4" placeholder="Düşüncelerini paylaş..."></textarea>
+    <div style="display:flex;gap:8px;margin-top:16px">
+      <button class="btn btn-ghost" onclick="closePostModal()" style="flex:1">İptal</button>
+      <button class="btn btn-primary" onclick="submitPost()" style="flex:2">
+        <i class="fas fa-paper-plane"></i> Paylaş
+      </button>
+    </div>
+  </div>
+</div>
+<script>
+const user = JSON.parse(localStorage.getItem('loggedUser'));
+if (!user) {
+  window.location.href = "login.html";
+}
+</script>
+<script src="script.js"></script>
+</body>
+</html>
+
+<div class="modal-overlay" id="nick-modal">
+  <div class="modal">
+    <div class="modal-handle"></div>
+
+    <h2 style="font-size:20px;margin-bottom:4px">Kullanıcı Adı değiştir</h2>
+    <p style="font-size:13px;color:var(--text3);margin-bottom:16px">
+      Maksimum 5 karakter
+    </p>
+
+    <input type="text" id="nick-input" placeholder="Yeni Kullanıcı Adı" maxlength="5">
+
+    <div style="display:flex;gap:8px;margin-top:16px">
+      <button class="btn btn-ghost" onclick="closeNickModal()" style="flex:1">
+        İptal
+      </button>
+      <button class="btn btn-primary" onclick="saveNickname()" style="flex:2">
+        Kaydet
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- DELETE CONFIRM MODAL -->
+<div class="modal-overlay" id="delete-modal">
+  <div class="modal">
+    <div class="modal-handle"></div>
+
+    <h2 style="font-size:20px;margin-bottom:6px;color:#EF4444">
+      Verileri Sil
+    </h2>
+
+    <p style="font-size:13px;color:var(--text3);margin-bottom:16px">
+      Tüm veriler kalıcı olarak silinecek. Bu işlem geri alınamaz.
+    </p>
+
+    <div style="display:flex;gap:8px">
+      <button class="btn btn-ghost" onclick="closeDeleteModal()" style="flex:1">
+        İptal
+      </button>
+
+      <button class="btn btn-primary" 
+              style="flex:2;background:#EF4444"
+              onclick="confirmDelete()">
+        Evet, Sil
+      </button>
+    </div>
+  </div>
+</div>

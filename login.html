@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ruh Hali — Giriş</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="login.css">
+</head>
+<body>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+
+
+<!-- ── LANDING PAGE ───────────────────────────── -->
+<div id="page-landing" class="page active">
+  <div class="landing-top">
+    <div class="logo-mark">🌙</div>
+    <div class="landing-headline">
+      Her gün bir <em>iz</em> bırak,<br>kendini <em>keşfet.</em>
+    </div>
+    <p class="landing-sub">Ruh halini takip et, desenleri gör, topluluğunla büyü.</p>
+  </div>
+
+  <div class="mood-float">
+    <div class="mf" style="--dur:2.8s;--dl:0s">😊<span>Mutlu</span></div>
+    <div class="mf" style="--dur:3.2s;--dl:0.4s">😌<span>Rahat</span></div>
+    <div class="mf" style="--dur:2.6s;--dl:0.8s">🤩<span>Heyecanlı</span></div>
+    <div class="mf" style="--dur:3.4s;--dl:0.2s">😢<span>Üzgün</span></div>
+    <div class="mf" style="--dur:2.9s;--dl:0.6s">😴<span>Yorgun</span></div>
+  </div>
+
+
+  <div class="landing-actions">
+    <button class="btn btn-primary" onclick="goOnboard()">
+      Başla →
+    </button>
+    <button class="btn btn-ghost" onclick="goAuth('login')">
+      Zaten hesabım var
+    </button>
+  </div>
+</div>
+
+<!-- ── ONBOARDING SLIDES ──────────────────────── -->
+<div id="page-onboard" class="page">
+  <div class="onboard-slides" id="onboard-slides">
+
+    <div class="onboard-slide">
+      <div class="slide-visual">
+        <div style="text-align:center">
+          <div style="font-size:70px;animation:floatBob 3s ease-in-out infinite">📓</div>
+          <div style="display:flex;gap:8px;justify-content:center;margin-top:20px">
+            <div style="background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:8px 14px;font-size:12px;color:var(--text2)">😊 Mutlu · ★★★★</div>
+            <div style="background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:8px 14px;font-size:12px;color:var(--text2)">😌 Rahat · ★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-title">Günlük ruh halini<br><em style="font-style:italic;color:var(--accent)">saniyeler içinde</em> kaydet</div>
+      <p class="slide-desc">9 farklı ruh hali, yoğunluk kaydırıcısı ve kişisel notlarla her anını belgele.</p>
+    </div>
+
+    <div class="onboard-slide">
+      <div class="slide-visual">
+        <div style="text-align:center">
+          <div style="display:flex;align-items:flex-end;gap:6px;height:100px;justify-content:center">
+            <div style="width:28px;background:var(--accent2);border-radius:6px 6px 0 0;height:40%;opacity:0.6"></div>
+            <div style="width:28px;background:var(--accent2);border-radius:6px 6px 0 0;height:70%;opacity:0.8"></div>
+            <div style="width:28px;background:var(--accent);border-radius:6px 6px 0 0;height:90%"></div>
+            <div style="width:28px;background:var(--accent2);border-radius:6px 6px 0 0;height:55%;opacity:0.7"></div>
+            <div style="width:28px;background:var(--accent);border-radius:6px 6px 0 0;height:80%"></div>
+            <div style="width:28px;background:var(--accent2);border-radius:6px 6px 0 0;height:60%;opacity:0.75"></div>
+            <div style="width:28px;background:var(--accent);border-radius:6px 6px 0 0;height:95%"></div>
+          </div>
+          <p style="font-size:11px;color:var(--text3);margin-top:12px">Son 7 gün trendi</p>
+        </div>
+      </div>
+      <div class="slide-title">Desenlerini gör,<br><em style="font-style:italic;color:var(--accent)">kendini tanı</em></div>
+      <p class="slide-desc">Haftalık grafikler ve içgörülerle hangi günlerde nasıl hissettiğini keşfet.</p>
+    </div>
+
+    <div class="onboard-slide">
+      <div class="slide-visual">
+        <div style="text-align:center">
+          <div style="font-size:60px;margin-bottom:16px;animation:floatBob 3s ease-in-out infinite">🤝</div>
+          <div style="background:var(--card2);border:1px solid var(--border);border-radius:14px;padding:12px 16px;text-align:left;max-width:240px;margin:0 auto">
+            <div style="font-size:11px;color:var(--accent);font-weight:500;margin-bottom:6px">B47 · 1 saat önce</div>
+            <div style="font-size:13px;color:var(--text2);line-height:1.5">Bugün çok zor bir gün geçirdim...</div>
+            <div style="display:flex;gap:12px;margin-top:8px;font-size:12px;color:var(--text3)">
+              <span>👍 3</span><span>❤️ 5</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-title">Yalnız değilsin,<br><em style="font-style:italic;color:var(--accent)">topluluğun var</em></div>
+      <p class="slide-desc">Anonim paylaşım alanında destek al ve başkalarına destek ol.</p>
+    </div>
+
+  </div>
+
+  <div class="slide-dots" id="slide-dots">
+    <div class="dot-ind active"></div>
+    <div class="dot-ind"></div>
+    <div class="dot-ind"></div>
+  </div>
+
+  <div class="onboard-footer" id="onboard-footer">
+    <button class="btn btn-ghost" id="onboard-skip" onclick="skipOnboard()" style="width:auto;padding:15px 20px">Atla</button>
+    <button class="btn btn-primary" id="onboard-next" onclick="nextSlide()">Devam →</button>
+  </div>
+</div>
+
+<!-- ── AUTH PAGE ──────────────────────────────── -->
+<div id="page-auth" class="page">
+  <div class="auth-header">
+    <button class="btn-text" onclick="goBack()" style="border:none;background:none;color:var(--text3);cursor:pointer;padding:0;font-family:DM Sans,sans-serif;font-size:14px;display:flex;align-items:center;gap:6px;margin-bottom:16px">
+      ← Geri
+    </button>
+    <h2 style="font-family:'Playfair Display',serif;font-size:26px;margin-bottom:6px" id="auth-headline">Hoş geldin</h2>
+    <p style="font-size:14px;color:var(--text2)" id="auth-sub">Hesabına giriş yap</p>
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="tab-login" onclick="switchAuth('login')">Giriş Yap</button>
+      <button class="auth-tab" id="tab-register" onclick="switchAuth('register')">Kayıt Ol</button>
+    </div>
+  </div>
+
+  <div class="auth-body">
+    <!-- LOGIN FORM -->
+    <div id="form-login">
+      <div class="field" id="f-login-email">
+        <label>E-posta</label>
+        <input type="email" id="login-email" placeholder="sen@örnek.com" oninput="clearError('f-login-email')">
+        <div class="field-err">Geçerli bir e-posta gir</div>
+      </div>
+      <div class="field" id="f-login-pass">
+        <label>Şifre</label>
+        <input type="password" id="login-pass" placeholder="••••••••" oninput="clearError('f-login-pass')">
+        <div class="field-err">Şifre en az 6 karakter olmalı</div>
+      </div>
+      <div class="forgot" onclick="showToast('Şifre sıfırlama bağlantısı gönderildi ✉️')">Şifremi unuttum</div>
+      <button class="btn btn-primary" id="btn-login" onclick="doLogin()">
+        <span class="spinner"></span>
+        <span class="btn-text-label">Giriş Yap</span>
+      </button>
+
+      <div class="divider">veya</div>
+      <div class="social-row">
+        <button class="social-btn" onclick="doSocial('Google')">
+          <span class="ico">G</span> Google
+        </button>
+        <button class="social-btn" onclick="doSocial('Apple')">
+          <span class="ico">🍎</span> Apple
+        </button>
+      </div>
+    </div>
+
+    <!-- REGISTER FORM -->
+    <div id="form-register" style="display:none">
+      <div class="field" id="f-reg-name">
+        <label>Ad Soyad</label>
+        <input type="text" id="reg-name" placeholder="Adın" oninput="clearError('f-reg-name')">
+        <div class="field-err">Adını gir</div>
+      </div>
+      <div class="field" id="f-reg-email">
+        <label>E-posta</label>
+        <input type="email" id="reg-email" placeholder="sen@örnek.com" oninput="clearError('f-reg-email')">
+        <div class="field-err">Geçerli bir e-posta gir</div>
+      </div>
+      <div class="field" id="f-reg-pass">
+        <label>Şifre</label>
+        <input type="password" id="reg-pass" placeholder="En az 8 karakter" oninput="checkStrength(this.value)">
+        <div class="strength-bar"><div class="strength-fill" id="strength-fill"></div></div>
+        <div class="field-err">Şifre en az 8 karakter olmalı</div>
+      </div>
+      <div class="field" id="f-reg-pass2">
+        <label>Şifre tekrar</label>
+        <input type="password" id="reg-pass2" placeholder="Şifreni tekrar gir" oninput="clearError('f-reg-pass2')">
+        <div class="field-err">Şifreler eşleşmiyor</div>
+      </div>
+      <button class="btn btn-primary" id="btn-register" onclick="doRegister()">
+        <span class="spinner"></span>
+        <span class="btn-text-label">Hesap Oluştur</span>
+      </button>
+
+      <div class="divider">veya</div>
+      <div class="social-row">
+        <button class="social-btn" onclick="doSocial('Google')">
+          <span class="ico">G</span> Google ile devam et
+        </button>
+      </div>
+      <p class="terms">Kayıt olarak <a>Kullanım Şartları</a>'nı ve <a>Gizlilik Politikası</a>'nı kabul etmiş olursun.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── WELCOME BACK PAGE ──────────────────────── -->
+<div id="page-welcome" class="page">
+  <div class="welcome-avatar">👤</div>
+  <div class="welcome-name" id="welcome-name">Merhaba!</div>
+  <p class="welcome-sub" id="welcome-sub">Bugün nasıl hissediyorsun?<br>Ruh halini kaydetmeye devam et.</p>
+
+  <div class="welcome-streak">
+    <div class="streak-fire">🔥</div>
+    <div class="streak-info">
+      <strong id="welcome-streak">—</strong>
+      <span>günlük seri</span>
+    </div>
+    <div style="margin-left:auto;font-size:11px;color:var(--text3);text-align:right">
+      Bu haftanın<br>en iyisi: <strong style="color:var(--accent)" id="welcome-best-mood">—</strong>
+    </div>
+  </div>
+
+  <button class="btn btn-primary" onclick="goApp()" style="margin-bottom:10px">
+    Uygulamaya Gir →
+  </button>
+  <button class="btn btn-text" onclick="logOut()">Farklı hesapla giriş yap</button>
+</div>
+<div id="toast">—</div>
+<script src="script.js"></script>
+</body>
+</html>
